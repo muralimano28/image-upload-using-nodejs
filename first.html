@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>
+            Todo
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script type = "text/javascript">
+            function sendName()
+            {
+                var WinNetwork = new ActiveXObject("WScript.Network");
+                var JsonObj = "{Username : " + WinNetwork.username + "}";
+                $ajax("http://10.203.200.145:8888/username",{type : 'POST', data : JsonObj});
+            }
+        </script>
+    </head>
+    <body onload = "sendName()">
+        <div>
+            <input type = "button" name = "enter" onclick = "sendName()" value = "Enter" />
+        </div>
+    </body>
+</html>
